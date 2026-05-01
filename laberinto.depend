@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1777670972 source:c:\users\admin\documents\proyecto-git-laberinto\src\main.cpp
+	<iostream>
+	"../include/Cell.h"
+	<vector>
+	<ctime>
+	<algorithm>
+	<random>
+
+1777665058 c:\users\admin\documents\proyecto-git-laberinto\include\cell.h
+

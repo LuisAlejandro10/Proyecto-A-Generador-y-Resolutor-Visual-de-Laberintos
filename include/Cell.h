@@ -2,26 +2,26 @@
 #define CELL_H
 
 struct Cell {
-    int row;
-    int col;
+    int row; //filas
+    int col; //columnas
 
-    bool top;
-    bool bottom;
-    bool left;
-    bool right;
+    bool top; //arriba
+    bool bottom; //abajo
+    bool left; //izquierda
+    bool right; //derecha
 
-    bool visited;
+    bool visited; //para saber si ya fue visitado
 
-    Cell(int r, int c) {
+    Cell(int r, int c) { //constructor
         row = r;
         col = c;
 
-        top = true;
+        top = true; //las inicialicamos con true como celdas completas
         bottom = true;
         left = true;
         right = true;
 
-        visited = false;
+        visited = false; //le asignamos valor por default
     }
 };
 
