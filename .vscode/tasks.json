@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar raylib",
+      "type": "shell",
+      "command": "C:/raylib/w64devkit/bin/g++.exe",
+      "args": [
+        "-B",
+        "C:/raylib/w64devkit/bin/",
+
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+
+        "src/ventana.cpp",
+
+        "-o",
+        "bin/programa.exe",
+
+        "-I",
+        "C:/raylib/raylib/src",
+
+        "-L",
+        "C:/raylib/raylib/src",
+
+        "-lraylib",
+        "-lopengl32",
+        "-lgdi32",
+        "-lwinmm"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
