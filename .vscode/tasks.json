@@ -13,10 +13,10 @@
         "-Wall",
         "-Wextra",
 
-        "src/ventana.cpp",
+        "${file}",
 
         "-o",
-        "bin/programa.exe",
+        "${workspaceFolder}/bin/programa.exe",
 
         "-I",
         "C:/raylib/raylib/src",
