@@ -1,7 +1,20 @@
 #ifndef CELL_H
 #define CELL_H
 
+
 struct Cell {
+    bool top = true;
+    bool bottom = true;
+    bool left = true;
+    bool right = true;
+    bool visited = false;
+};
+
+#endif
+
+
+/*struct Cell {  
+
     int row; //filas
     int col; //columnas
 
@@ -23,6 +36,6 @@ struct Cell {
 
         visited = false; //le asignamos valor por default
     }
-};
+};*/
 
-#endif
+
