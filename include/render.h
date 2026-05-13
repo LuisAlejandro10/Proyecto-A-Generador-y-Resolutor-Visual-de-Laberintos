@@ -1,7 +1,10 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 #include "raylib.h"
+#include <vector>
+#include <utility>
 
+using namespace std; 
 
 
 class render{
@@ -21,7 +24,7 @@ public:
           DrawLine(x1, y1, x2, y2, BLACK);
     }
     void dibujarLaberinto();
-    
+    void dibujarCamino(vector<pair<int,int>> camino);
 };
 
 #endif

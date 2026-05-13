@@ -89,3 +89,22 @@ void render::dibujarLaberinto(){
         }
     }
 }
+void render::dibujarCamino(vector<pair<int,int>> camino)
+{
+    for(auto celda : camino)
+    {
+        int fila = celda.first;
+        int columna = celda.second;
+
+        int x = columna * tamañodelacelda;
+        int y = fila * tamañodelacelda;
+
+        DrawRectangle(
+            x + 10,
+            y + 10,
+            tamañodelacelda - 20,
+            tamañodelacelda - 20,
+            BLUE
+        );
+    }
+}

@@ -4,6 +4,11 @@
 #include "Maze.h"
 #include <iostream>
 #include <string.h>
+#include "Graph.h"
+#include "BFS.h"
+#include <vector>
+
+
 
 int main(){
     
@@ -25,15 +30,19 @@ int main(){
     grid[filas - 1][columnas - 1].bottom = false;
     //std::cout << "Laberinto generado correctamente" << std::endl;
 
+    auto grafo = construirGrafo();
+    auto camino = bfs(grafo);
+
     while (!WindowShouldClose()) {
 
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        
-        render.dibujarCelda(0, 0, GREEN);   // inicio
-        render.dibujarCelda(9, 9, RED);     // final
+        render.dibujarCamino(camino);
+
+        render.dibujarCelda(0, 0, RED);   // inicio
+        render.dibujarCelda(9, 9, GREEN);     // final
         render.dibujarLaberinto();
 
 
