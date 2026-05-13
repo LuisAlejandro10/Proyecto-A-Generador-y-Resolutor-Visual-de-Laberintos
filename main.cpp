@@ -17,10 +17,13 @@ int main(){
     render render(anchodepantalla, altodepantalla, filas, columnas);
 
     while (!WindowShouldClose()) {
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-
+        
+        render.dibujarCelda(0, 0, GREEN);   // inicio
+        render.dibujarCelda(9, 9, RED);     // final
         render.dibujarcuadricula();
 
         DrawText("Laberinto 10x10", 1200, 10, 30, BLACK); 

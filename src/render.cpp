@@ -36,4 +36,16 @@ void render::dibujarcuadricula(){
     }
 }
 
+void render::dibujarCelda(int fila, int columna, Color color){
+    int x = columna * tamañodelacelda;
+    int y = fila * tamañodelacelda;
+
+    DrawRectangle(
+        x + 1,
+        y + 1, 
+        tamañodelacelda - 2,
+        tamañodelacelda - 2,
+        color
+    );
+}
 
