@@ -50,8 +50,8 @@ void render::dibujarCelda(int fila, int columna, Color color){
 }
 
 void render::dibujarLaberinto(){
-    for(int fila = 0; fila <= filas; fila++){
-        for(int columna = 0; columna <= columnas; columna++){
+    for(int fila = 0; fila < filas; fila++){
+        for(int columna = 0; columna < columnas; columna++){
             int x = fila * tamañodelacelda;
             int y = columna * tamañodelacelda;
 
