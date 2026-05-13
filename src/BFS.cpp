@@ -3,11 +3,14 @@
 
 #include <queue>
 #include <iostream>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
 vector<pair<int,int>> bfs(
-    vector<vector<vector<pair<int,int>>>>& grafo
+    vector<vector<vector<pair<int,int>>>>& grafo,
+    vector<pair<int,int>>& explorados
 ) {
     vector<vector<bool>> visitado(filas, vector<bool>(columnas, false));//revisar si ya fueron visitados
     vector<vector<pair<int,int>>> padre(filas, vector<pair<int,int>>(columnas, {-1,-1})); //recordar de donde vinimos
@@ -24,6 +27,14 @@ vector<pair<int,int>> bfs(
 
         int i = actual.first;
         int j = actual.second;
+
+         // Guardamos el orden en que BFS explora las celdas
+        explorados.push_back({i, j});
+
+        // Si ya llegó al final, podemos detener BFS
+        if (i == filas - 1 && j == columnas - 1) {
+            break;
+        }
 
         //recorrer vecinos del grafo
         for (auto vecino : grafo[i][j]) {
@@ -61,5 +72,9 @@ vector<pair<int,int>> bfs(
     }
 
     camino.push_back({0,0});
+     // Ahora el camino va de inicio a final
+    reverse(camino.begin(), camino.end());
+
+
     return camino;
 }

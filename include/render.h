@@ -25,6 +25,7 @@ public:
     }
     void dibujarLaberinto();
     void dibujarCamino(vector<pair<int,int>> camino);
+    void dibujarExplorados(vector<pair<int,int>> explorados);
 };
 
 #endif

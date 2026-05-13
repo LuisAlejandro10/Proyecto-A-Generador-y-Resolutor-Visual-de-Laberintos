@@ -100,11 +100,31 @@ void render::dibujarCamino(vector<pair<int,int>> camino)
         int y = fila * tamañodelacelda;
 
         DrawRectangle(
-            x + 10,
-            y + 10,
-            tamañodelacelda - 20,
-            tamañodelacelda - 20,
+            x + 20,
+            y + 20,
+            tamañodelacelda - 40,
+            tamañodelacelda - 40,
             BLUE
+        );
+    }
+}
+
+void render::dibujarExplorados(vector<pair<int,int>> explorados)
+{
+    for(auto celda : explorados)
+    {
+        int fila = celda.first;
+        int columna = celda.second;
+
+        int x = columna * tamañodelacelda;
+        int y = fila * tamañodelacelda;
+
+        DrawRectangle(
+            x + 14,
+            y + 14,
+            tamañodelacelda - 28,
+            tamañodelacelda - 28,
+            LIGHTGRAY
         );
     }
 }
