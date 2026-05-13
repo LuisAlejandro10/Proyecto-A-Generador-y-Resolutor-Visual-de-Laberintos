@@ -14,4 +14,6 @@ extern int columnas;
 
 extern mt19937 g;
 
+void reiniciarGrid(); //para reiniciar el grid 
+
 #endif

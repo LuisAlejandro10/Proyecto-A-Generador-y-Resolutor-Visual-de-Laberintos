@@ -10,3 +10,7 @@ vector<vector<Cell>> grid(filas, vector<Cell>(columnas));//crea vectores dentro 
 
 
 mt19937 g(time(0));
+
+void reiniciarGrid() {
+    grid = vector<vector<Cell>>(filas, vector<Cell>(columnas));
+}
