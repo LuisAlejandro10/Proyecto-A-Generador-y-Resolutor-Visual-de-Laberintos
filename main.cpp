@@ -5,7 +5,7 @@
 
 int main(){
     
-    const int anchodepantalla = 1920;
+    const int anchodepantalla = 1720;
     const int altodepantalla = 1080;
     
     const int filas = 10;
