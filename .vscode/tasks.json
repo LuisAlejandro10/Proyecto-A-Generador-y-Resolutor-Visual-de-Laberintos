@@ -18,7 +18,7 @@
         "-o",
         "${workspaceFolder}/programa.exe",
         "${workspaceFolder}/main.cpp",
-        "${workspaceFolder}/src/Renderer.cpp",
+        "${workspaceFolder}/src/render.cpp",
         "-I${workspaceFolder}/include",
 
         "-I",
