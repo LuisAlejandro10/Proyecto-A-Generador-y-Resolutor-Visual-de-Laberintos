@@ -1,7 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-class Renderer {
+class render{
 private:
     int ancho;
     int alto;
@@ -10,9 +10,9 @@ private:
     int tamañodelacelda;
 
 public:
-    Renderer(int ancho, int alto, int filas, int columnas);
+    render(int ancho, int alto, int filas, int columnas);
 
-    void drawGrid();
+    void dibujarcuadricula();
 };
 
 #endif
