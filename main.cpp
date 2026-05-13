@@ -6,7 +6,7 @@
 int main(){
     
     const int anchodepantalla = 1920;
-    const int altodepantalla = 180;
+    const int altodepantalla = 1080;
     
     const int filas = 10;
     const int columnas = 10; 
@@ -23,7 +23,7 @@ int main(){
 
         render.dibujarcuadricula();
 
-        DrawText("Laberinto 10x10", 620, 30, 20, BLACK);
+        DrawText("Laberinto 10x10", 1500, 10, 30, BLACK); 
 
         EndDrawing();
     }

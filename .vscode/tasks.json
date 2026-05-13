@@ -13,8 +13,6 @@
         "-Wall",
         "-Wextra",
 
-        "${file}",
-
         "-o",
         "${workspaceFolder}/programa.exe",
         "${workspaceFolder}/main.cpp",
