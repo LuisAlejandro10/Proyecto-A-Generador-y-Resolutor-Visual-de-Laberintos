@@ -7,7 +7,7 @@
 
 int main(){
     
-    const int anchodepantalla = 800;
+    const int anchodepantalla = 600;
     const int altodepantalla = 600;
     
     const int filas = 10;
@@ -18,9 +18,11 @@ int main(){
 
     render render(anchodepantalla, altodepantalla, filas, columnas);
 
-    std::cout << "Filas: " << grid.size() << std::endl;
-    std::cout << "Columnas: " << grid[0].size() << std::endl;
+    
     generar(0, 0);
+
+    grid[0][0].top = false;
+    grid[filas - 1][columnas - 1].bottom = false;
     //std::cout << "Laberinto generado correctamente" << std::endl;
 
     while (!WindowShouldClose()) {

@@ -52,20 +52,40 @@ void render::dibujarCelda(int fila, int columna, Color color){
 void render::dibujarLaberinto(){
     for(int fila = 0; fila < filas; fila++){
         for(int columna = 0; columna < columnas; columna++){
-            int x = fila * tamañodelacelda;
-            int y = columna * tamañodelacelda;
+            int x = columna * tamañodelacelda;
+            int y = fila * tamañodelacelda;
 
             if(grid[fila][columna].top)
-                DrawLine(x, y, x + tamañodelacelda, y, BLACK);
+                 DrawLineEx(
+                    {(float)x, (float)y},
+                    {(float)(x + tamañodelacelda), (float)y},
+                    3,
+                    BLACK
+                );
 
             if (grid[fila][columna].right)
-                DrawLine(x + tamañodelacelda, y, x + tamañodelacelda, y + tamañodelacelda, BLACK);
+                 DrawLineEx(
+                    {(float)(x + tamañodelacelda), (float)y},
+                    {(float)(x + tamañodelacelda), (float)(y + tamañodelacelda)},
+                    3,
+                    BLACK
+                );
 
             if (grid[fila][columna].bottom)
-                DrawLine(x, y + tamañodelacelda, x + tamañodelacelda, y + tamañodelacelda, BLACK);
+                 DrawLineEx(
+                    {(float)x, (float)(y + tamañodelacelda)},
+                    {(float)(x + tamañodelacelda), (float)(y + tamañodelacelda)},
+                    3,
+                    BLACK
+                );
 
             if (grid[fila][columna].left)
-                DrawLine(x, y, x, y + tamañodelacelda, BLACK);
+                DrawLineEx(
+                    {(float)x, (float)y},
+                    {(float)x, (float)(y + tamañodelacelda)},
+                    3,
+                    BLACK
+                );
         }
     }
 }
