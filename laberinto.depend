@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1778603111 source:c:\users\admin\documents\proyecto-git-laberinto\src\main.cpp
+	<iostream>
+	"../include/Cell.h"
+	"../include/Maze.h"
+	"../include/Globals.h"
+	"../include/BFS.h"
+	"../include/Graph.h"
+	<vector>
+
+1777665058 c:\users\admin\documents\proyecto-git-laberinto\include\cell.h
+
+1778599111 c:\users\admin\documents\proyecto-git-laberinto\include\maze.h
+
+1778600070 source:c:\users\admin\documents\proyecto-git-laberinto\src\globals.cpp
+	"../include/Globals.h"
+	<ctime>
+
+1778599978 c:\users\admin\documents\proyecto-git-laberinto\include\globals.h
+	<vector>
+	<random>
+	"Cell.h"
+
+1778600393 source:c:\users\admin\documents\proyecto-git-laberinto\src\maze.cpp
+	"../include/Maze.h"
+	"../include/Cell.h"
+	"../include/Globals.h"
+	<algorithm>
+
+1778601366 source:c:\users\admin\documents\proyecto-git-laberinto\src\bfs.cpp
+	"../include/BFS.h"
+	"../include/Globals.h"
+	<queue>
+	<iostream>
+
+1778600762 c:\users\admin\documents\proyecto-git-laberinto\include\bfs.h
+	<vector>
+	<utility>
+
+1778602580 source:c:\users\admin\documents\proyecto-git-laberinto\src\graph.cpp
+	"../include/Graph.h"
+	"../include/Globals.h"
+	"../include/Cell.h"
+
+1778602479 c:\users\admin\documents\proyecto-git-laberinto\include\graph.h
+	<vector>
+	<utility>
+
