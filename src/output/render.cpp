@@ -6,7 +6,7 @@
 
 int main()
 {
-    InitWindow(800, 450, "Mi primer proyecto con raylib y C++");
+    InitWindow(1920, 1080, "Mi primer proyecto con raylib y C++");
 
     SetTargetFPS(60);
 
@@ -15,7 +15,7 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        DrawText("Hola raylib no se que haccer en mi vida", 190, 200, 20, BLACK);
+        DrawText("Hola raylib no se que haccer en mi vida", 790, 500, 20, BLACK);
 
         EndDrawing();
     }
