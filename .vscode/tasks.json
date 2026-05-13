@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar raylib",
+      "type": "process",
+      "command": "C:/raylib/w64devkit/bin/g++.exe",
+      "args": [
+        "-B",
+        "C:/raylib/w64devkit/bin/",
+
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+
+        "-o",
+        "${workspaceFolder}/programa.exe",
+        "${workspaceFolder}/main.cpp",
+        "${workspaceFolder}/src/render.cpp",
+        "-I${workspaceFolder}/include",
+        "${workspaceFolder}/src/Globals.cpp",
+        "${workspaceFolder}/src/Maze.cpp",
+        "${workspaceFolder}/src/BFS.cpp",
+        "${workspaceFolder}/src/Graph.cpp",
+        "${workspaceFolder}/src/Solver.cpp",
+
+        "-I",
+        "C:/raylib/raylib/src",
+
+        "-L",
+        "C:/raylib/raylib/src",
+
+        "-lraylib",
+        "-lopengl32",
+        "-lgdi32",
+        "-lwinmm"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Compilar y ejecutar raylib",
+      "type": "shell",
+      "command": "cmd.exe",
+      "args": ["/c", "\"${workspaceFolder}\\programa.exe\""],
+      "dependsOn": "Compilar raylib",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
