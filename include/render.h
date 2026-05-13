@@ -17,7 +17,10 @@ public:
 
     void dibujarcuadricula();
     void dibujarCelda(int fila, int columna, Color color);
-    void dibujarMuro(int x1, int y1, int x2, int y2);
+    void dibujarMuro(int x1, int y1, int x2, int y2){
+          DrawLine(x1, y1, x2, y2, BLACK);
+    }
+    void dibujarLaberinto(Maze& maze);
     
 };
 
