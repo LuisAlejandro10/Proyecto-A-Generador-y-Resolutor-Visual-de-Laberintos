@@ -1,7 +1,13 @@
-#include "raylib.h"
-
+#include "render.h"
 #include "raylib.h"
 #include <iostream>
+
+
+render::Render (int ancho, int alto, int filas, int columnas){
+    this -> anchodepantalla = ancho;
+    this -> altodepantalla = alto;
+}
+
 
 
 int main()
