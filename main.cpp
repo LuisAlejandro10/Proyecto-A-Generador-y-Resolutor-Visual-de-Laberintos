@@ -11,13 +11,10 @@
 
 using namespace std;
 
-int main(){
+int main() {
 
     const int anchodepantalla = 600;
     const int altodepantalla = 600;
-
-    const int filas = 10;
-    const int columnas = 10;
 
     InitWindow(
         anchodepantalla,
@@ -34,21 +31,21 @@ int main(){
         columnas
     );
 
+    // Generar laberinto inicial
+    reiniciarGrid();
     generar(0, 0);
 
-    // abrir entrada y salida
+    // Entrada y salida
     grid[0][0].top = false;
     grid[filas - 1][columnas - 1].bottom = false;
 
-    // construir grafo
+    // Construir grafo y resolver con BFS
     auto grafo = construirGrafo();
 
-    // BFS
-    vector<pair<int,int>> explorados;
+    vector<pair<int, int>> explorados;
+    vector<pair<int, int>> camino = bfs(grafo, explorados);
 
-    auto camino = bfs(grafo, explorados);
-
-    // VARIABLES DE ANIMACION
+    // Variables de animación
     int pasoExploracion = 0;
     int pasoCamino = 0;
 
@@ -62,36 +59,44 @@ int main(){
 
     while (!WindowShouldClose()) {
 
-        if (IsKeyPressed(KEY_R)) {
-        reiniciarGrid();
-        generar(0, 0);
-
-        grid[0][0].top = false;
-        grid[filas - 1][columnas - 1].bottom = false;
-
-        grafo = construirGrafo();
-
-        explorados.clear();
-        camino = bfs(grafo, explorados);
-
-        pasoExploracion = 0;
-        pasoCamino = 0;
-        tiempoExploracion = 0.0f;
-        tiempoCamino = 0.0f;
-        exploracionTerminada = false;
-    }
-
-    if (IsKeyPressed(KEY_SPACE)) {
-        pasoExploracion = 0;
-        pasoCamino = 0;
-        tiempoExploracion = 0.0f;
-        tiempoCamino = 0.0f;
-        exploracionTerminada = false;
-    }
-
         float delta = GetFrameTime();
 
-        // ANIMAR EXPLORACION
+        // Tecla R: generar nuevo laberinto
+        if (IsKeyPressed(KEY_R)) {
+
+            reiniciarGrid();
+            generar(0, 0);
+
+            grid[0][0].top = false;
+            grid[filas - 1][columnas - 1].bottom = false;
+
+            grafo = construirGrafo();
+
+            explorados.clear();
+            camino = bfs(grafo, explorados);
+
+            pasoExploracion = 0;
+            pasoCamino = 0;
+
+            tiempoExploracion = 0.0f;
+            tiempoCamino = 0.0f;
+
+            exploracionTerminada = false;
+        }
+
+        // Tecla ESPACIO: repetir animación BFS
+        if (IsKeyPressed(KEY_SPACE)) {
+
+            pasoExploracion = 0;
+            pasoCamino = 0;
+
+            tiempoExploracion = 0.0f;
+            tiempoCamino = 0.0f;
+
+            exploracionTerminada = false;
+        }
+
+        // Animar exploración BFS
         if (!exploracionTerminada) {
 
             tiempoExploracion += delta;
@@ -100,7 +105,6 @@ int main(){
                 tiempoExploracion >= velocidadExploracion &&
                 pasoExploracion < explorados.size()
             ) {
-
                 pasoExploracion++;
                 tiempoExploracion = 0.0f;
             }
@@ -110,7 +114,7 @@ int main(){
             }
         }
 
-        // ANIMAR CAMINO FINAL
+        // Animar camino final
         else {
 
             tiempoCamino += delta;
@@ -119,20 +123,17 @@ int main(){
                 tiempoCamino >= velocidadCamino &&
                 pasoCamino < camino.size()
             ) {
-
                 pasoCamino++;
                 tiempoCamino = 0.0f;
             }
         }
 
-        // EXPLORADOS PARCIALES
-        vector<pair<int,int>> exploradosParcial(
+        vector<pair<int, int>> exploradosParcial(
             explorados.begin(),
             explorados.begin() + pasoExploracion
         );
 
-        // CAMINO PARCIAL
-        vector<pair<int,int>> caminoParcial(
+        vector<pair<int, int>> caminoParcial(
             camino.begin(),
             camino.begin() + pasoCamino
         );
@@ -143,9 +144,12 @@ int main(){
 
         render.dibujarExplorados(exploradosParcial);
         render.dibujarCamino(caminoParcial);
+
         render.dibujarCelda(0, 0, GREEN);
-        render.dibujarCelda(9, 9, RED);
+        render.dibujarCelda(filas - 1, columnas - 1, RED);
+
         render.dibujarLaberinto();
+
         DrawText("R: Nuevo laberinto", 10, 10, 18, DARKGRAY);
         DrawText("SPACE: Repetir BFS", 10, 35, 18, DARKGRAY);
 
